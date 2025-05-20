@@ -34,25 +34,16 @@ const SignUp = () => {
         else{
             setErrorMessage("");
         }
-        console.log(password);
-        //console.log(userData)
+        
+                    //create user
         signUp(userData.email, userData.password) 
         .then( result =>{
-                Swal.fire({
-                        title: "User is successfully Created",
-                        icon: "success",
-                        draggable: true
-                });
+            Swal.fire("User is successfully Created")
             console.log(result.user);
         })
         .catch( (error) =>{
+            Swal.fire(`${error.message}`)
             console.log(error.message);
-                        Swal.fire({
-                                title: 'Error!',
-                                text: `{error.message}`,
-                                icon: 'error',
-                                confirmButtonText: 'Please Make a correction'
-                        })
         })
 
     }
