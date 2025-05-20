@@ -3,11 +3,11 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { Outlet } from 'react-router';
 
-const HomeLayout = () => {
+const AuthLayout = () => {
     return (
         <div>
             <header className='sticky top-0 z-10 bg-base-200'>
-                <Navbar ></Navbar>
+                <Navbar></Navbar>
             </header>
             <main>
                 <Outlet></Outlet>
@@ -19,4 +19,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default AuthLayout;

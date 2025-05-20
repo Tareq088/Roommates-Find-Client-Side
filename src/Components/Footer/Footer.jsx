@@ -15,7 +15,7 @@ const Footer = () => {
         </Link>
         <strong>Find Mate Company Ltd.</strong><br />
         1234 Road Name, City, Country<br />
-        Email: contact@example.com | Phone: +880 123 456 7890
+        Email: contact@example.com | Phone: +880 111 111 1111
       </div>
       <div className="mt-3">
         <Link href="/terms-and-conditions" className="text-gray-600 hover:underline mx-2">
