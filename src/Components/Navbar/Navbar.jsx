@@ -1,9 +1,24 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router';
 import roomMateLogo from '../../assets/roomMate_logo.png'
+import { AuthContext } from '../../Contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 
 const Navbar = () => {
+    const {user, logOut} = use(AuthContext);
+    const navigate = useNavigate();
+    console.log(user);
+    const handleLogOut =() =>{
+        logOut()
+        .then(()=>{
+            toast.success("Log Out Successfully");
+            navigate("/auth/login")
+        })
+        .catch((error)=>{
+            toast(`${error.message}`)
+        })
+    }
     return (
         <div className=''>
             <div className="navbar w-11/12 mx-auto">
@@ -55,16 +70,22 @@ const Navbar = () => {
                         
                     } */}
                     {/* </div> */}
-                    {/* {
-                        user?
-                        <button onClick={handleLogOut} 
-                        className="btn font-medium text-xs md:text-base  p-1 sm:p-2">Log Out</button>
+                 
+
+                        {
+                            user?
+                            <button onClick={handleLogOut} 
+                                className="btn btn-outline font-medium text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log Out
+                            </button>
                         :
-                        <div> */}
-                        <Link to='/auth/login' className="btn font-medium mr-2 text-xs md:text-base  p-1 sm:p-2">Log In</Link>
-                        <Link to='/auth/register' className="btn font-medium text-xs md:text-base  p-1 sm:p-2">Register</Link>
+                            <div>
+                                <Link to='/auth/login' className="btn btn-outline font-medium mr-2 text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log In</Link>
+                                <Link to='/auth/register' className="btn font-medium btn-outline text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Register</Link>
+                            </div>
+                        }
+                        
                     </div>
-                    {/* } */}
+                
                 </div>
             </div>
         </div>

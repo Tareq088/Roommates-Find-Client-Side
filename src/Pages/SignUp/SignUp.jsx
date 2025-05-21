@@ -1,11 +1,12 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const{signUp} = use(AuthContext);
-    const[errorMessage, setErrorMessage] = useState("")
+    const{signUp,setUser} = use(AuthContext);
+    const[errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSignUp =(e) =>{
         e.preventDefault();
@@ -34,22 +35,23 @@ const SignUp = () => {
         else{
             setErrorMessage("");
         }
-        
                     //create user
         signUp(userData.email, userData.password) 
         .then( result =>{
-            Swal.fire("User is successfully Created")
-            console.log(result.user);
+            Swal.fire("User is successfully Created");
+            // console.log(result.user);
+            setUser(result.user)
+            navigate("/home");
         })
         .catch( (error) =>{
             Swal.fire(`${error.message}`)
             console.log(error.message);
         })
-
     }
     return (
         <div>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto p-5">
+                <h2 className='text-center font-bold text-lg md:text-3xl pt-4'>Sign Up</h2>
                 <form onSubmit={handleSignUp} className="card-body">
                     <fieldset className="fieldset">
                                 {/* name */}
@@ -68,11 +70,13 @@ const SignUp = () => {
                         {
                             errorMessage && <p className='text-xs text-red-700'>{errorMessage}</p>
                         }
-
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button type='submit' to='/auth/login' className="btn btn-neutral mt-4">Register</button>
                     </fieldset>
                 </form>
+                <p className='text-center'>Already Have an Account? 
+                    <span className='font-bold text-red-600 hover:text-green-800 hover:underline'><Link to='/auth/login'> Log In</Link></span>
+                </p>
             </div>
         </div>
     );
