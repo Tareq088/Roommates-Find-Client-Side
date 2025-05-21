@@ -49,7 +49,7 @@ const SignUp = () => {
             updateUserFProfile(profile)
             .then(()=>{
                 setUser({...result.user, ...profile})
-                navigate(location.state || "/home");
+                navigate(location.state || "/");
             })
             .catch((error)=>{
                 toast.error(`${error.message}`)

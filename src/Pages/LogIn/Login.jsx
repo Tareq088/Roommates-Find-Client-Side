@@ -19,7 +19,7 @@ const Login = () => {
         .then(result =>{
             Swal.fire("Logged In Successfully");
             console.log(result.user);
-            navigate(location.state ||"/home");
+            navigate(location.state ||"/");
         })
         .catch( error =>{
             Swal.fire(`${error.message}`);
@@ -31,7 +31,7 @@ const Login = () => {
             .then(result =>{
                 Swal.fire("Google Verification Done.");
                 console.log(result.user);
-                navigate(location.state || "/home");
+                navigate(location.state || "/");
             })
             .catch( error =>
                 Swal.fire(`${error.message}`)
