@@ -1,12 +1,14 @@
 import React, { use, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const {logIn, googleLogIn} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const handleLogIn= (e) =>{
         e.preventDefault();
         const form = e.target;
@@ -17,7 +19,7 @@ const Login = () => {
         .then(result =>{
             Swal.fire("Logged In Successfully");
             console.log(result.user);
-            navigate("/home");
+            navigate(location.state ||"/home");
         })
         .catch( error =>{
             Swal.fire(`${error.message}`);
@@ -29,7 +31,7 @@ const Login = () => {
             .then(result =>{
                 Swal.fire("Google Verification Done.");
                 console.log(result.user);
-                navigate("/home");
+                navigate(location.state || "/home");
             })
             .catch( error =>
                 Swal.fire(`${error.message}`)

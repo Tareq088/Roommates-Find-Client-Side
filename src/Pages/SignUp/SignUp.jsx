@@ -48,7 +48,7 @@ const SignUp = () => {
             updateUserFProfile(profile)
             .then(()=>{
                 setUser({...result.user, ...profile})
-                navigate("/home");
+                navigate(location.state || "/home");
             })
             .catch((error)=>{
                 toast.error(`${error.message}`)
