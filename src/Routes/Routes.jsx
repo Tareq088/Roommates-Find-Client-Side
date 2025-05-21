@@ -4,6 +4,7 @@ import Login from "../Pages/LogIn/Login";
 import AuthLayout from "../Layout/AuthLayOut/AuthLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 import Home from "../Components/Home/Home";
+import Error from "../Pages/Error/Error";
 
 
 export const router = createBrowserRouter([
@@ -30,5 +31,9 @@ export const router = createBrowserRouter([
             Component:SignUp
         }
     ]
+  },
+  {
+    path:"/*",
+    Component:Error
   }
 ]);
