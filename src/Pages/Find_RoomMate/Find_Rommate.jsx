@@ -21,8 +21,10 @@ const Find_Roommate = () => {
         } )
         .then(res => res.json())
         .then(data =>{
-            toast.success("Roommates data are uploaded successfully")
-            console.log("data after post", data)
+            if(data.insertedId){
+                 toast.success("Roommates data are uploaded successfully")
+            }
+            // console.log("data after post", data)
         })
     }
     return (
