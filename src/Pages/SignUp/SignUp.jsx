@@ -45,6 +45,7 @@ const SignUp = () => {
                 displayName:userData.name,
                 photoURL: userData.photo
             }
+                        //update profile to show the profile pic, displayName (emailverify na prothome tai)
             updateUserFProfile(profile)
             .then(()=>{
                 setUser({...result.user, ...profile})
@@ -53,7 +54,6 @@ const SignUp = () => {
             .catch((error)=>{
                 toast.error(`${error.message}`)
             })
-            
         })
         .catch( (error) =>{
             Swal.fire(`${error.message}`)
