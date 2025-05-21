@@ -2,9 +2,10 @@ import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
-    const{signUp,setUser} = use(AuthContext);
+    const{signUp,setUser,updateUserFProfile} = use(AuthContext);
     const[errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
@@ -40,8 +41,19 @@ const SignUp = () => {
         .then( result =>{
             Swal.fire("User is successfully Created");
             // console.log(result.user);
-            setUser(result.user)
-            navigate("/home");
+            const profile ={
+                displayName:userData.name,
+                photoURL: userData.photo
+            }
+            updateUserFProfile(profile)
+            .then(()=>{
+                setUser({...result.user, ...profile})
+                navigate("/home");
+            })
+            .catch((error)=>{
+                toast.error(`${error.message}`)
+            })
+            
         })
         .catch( (error) =>{
             Swal.fire(`${error.message}`)
@@ -63,7 +75,7 @@ const SignUp = () => {
                                     {/* photoURL */}
                     
                         <label className="label">photoURL</label>
-                        <input type="text" name='photoURL' className="input" placeholder="photoURL" />
+                        <input type="text" name='photo' className="input" placeholder="photoURL" />
                                     {/* password */}
                         <label className="label">Password</label>
                         <input type="password" name='password' className="input" placeholder="Password" />

@@ -3,12 +3,13 @@ import { Link, NavLink, useNavigate } from 'react-router';
 import roomMateLogo from '../../assets/roomMate_logo.png'
 import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
-
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
     const {user, logOut} = use(AuthContext);
     const navigate = useNavigate();
     console.log(user);
+    console.log(user?.photoURL)
     const handleLogOut =() =>{
         logOut()
         .then(()=>{
@@ -54,12 +55,19 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="mr-2">
-                    {/* {
+                <div className="flex gap-2">
+                    {
                         user?
                         <Link to='/profile'>
-                            <div className='w-12 p-0.5 bg-black rounded-full'>
+                            <div className='w-12 p-0.5 bg-black rounded-full relative group'>
+
                                 <img className='rounded-full' src={user?.photoURL}></img>
+
+        
+                                <div className='absolute -left-10 top-12 hidden group-hover:block p-1 w-40 bg-blue-100 rounded-md'>
+                                    
+                                        <p className='font-bold text-center text-fuchsia-950'>{user?.displayName}</p>
+                                </div>
                             </div>
                         </Link>
 
@@ -68,23 +76,20 @@ const Navbar = () => {
                             <FaUserCircle  size={35}></FaUserCircle>
                         </div>
                         
-                    } */}
-                    {/* </div> */}
-                 
-
-                        {
-                            user?
-                            <button onClick={handleLogOut} 
-                                className="btn btn-outline font-medium text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log Out
-                            </button>
-                        :
-                            <div>
-                                <Link to='/auth/login' className="btn btn-outline font-medium mr-2 text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log In</Link>
-                                <Link to='/auth/register' className="btn font-medium btn-outline text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Register</Link>
-                            </div>
-                        }
+                    } 
+                    {
+                        user?
+                        <button onClick={handleLogOut} 
+                            className="btn btn-outline font-medium text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log Out
+                        </button>
+                    :
+                        <div className='flex'>
+                            <Link to='/auth/login' className="btn btn-outline font-medium mr-2 text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log In</Link>
+                            <Link to='/auth/signup' className="btn font-medium btn-outline text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Register</Link>
+                        </div>
+                    }
                         
-                    </div>
+                </div>
                 
                 </div>
             </div>
