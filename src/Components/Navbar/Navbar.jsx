@@ -8,8 +8,8 @@ import { FaUserCircle } from 'react-icons/fa';
 const Navbar = () => {
     const {user, logOut} = use(AuthContext);
     const navigate = useNavigate();
-    console.log(user);
-    console.log(user?.photoURL)
+    // console.log(user);
+    // console.log(user?.photoURL)
     const handleLogOut =() =>{
         logOut()
         .then(()=>{

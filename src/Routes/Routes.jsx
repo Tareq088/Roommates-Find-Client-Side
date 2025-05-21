@@ -5,9 +5,10 @@ import AuthLayout from "../Layout/AuthLayOut/AuthLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 import Home from "../Components/Home/Home";
 import Error from "../Pages/Error/Error";
-import Find_Rommate from "../Pages/Find_RoomMate/Find_Rommate";
+import Find_Roommate from "../Pages/Find_RoomMate/Find_Rommate";
 import Browse_Listing from './../Pages/Browse_Listing/Browse_Listing';
 import My_Listing from "../Pages/My_Listing/My_Listing";
+import PrivateRoute from './../Contexts/PrivateRoute';
 
 
 export const router = createBrowserRouter([
@@ -21,8 +22,8 @@ export const router = createBrowserRouter([
         },
         {
           path:"/find_roommate",
-          Component:Find_Rommate
-        },
+          element:<PrivateRoute><Find_Roommate></Find_Roommate></PrivateRoute>
+              },
       {
         path:'/browse_listing',
         Component:Browse_Listing

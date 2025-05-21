@@ -3,7 +3,7 @@ import { AuthContext } from './AuthContext';
 import Loading from '../Pages/Loading/Loading';
 import { Navigate, useLocation } from 'react-router';
 
-const PrivatRoute = ({children}) => {
+const PrivateRoute = ({children}) => {
     const{user,loading} =use(AuthContext);
     const location = useLocation()
             //loading thakle dekhabo
@@ -20,4 +20,4 @@ const PrivatRoute = ({children}) => {
     )
 };
 
-export default PrivatRoute;
+export default PrivateRoute;
