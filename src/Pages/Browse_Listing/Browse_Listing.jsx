@@ -27,22 +27,25 @@ const Browse_Listing = () => {
                                 <td>Availability</td>
                                 <td>Comment</td>
                             </tr>
-                        </thead>                    
+                        </thead>    
+                        <tbody>
                         {
                             roommatesData.map((roommate,index) =>
-                                    <tr key={roommate._id}>
-                                        <th>{index+1}</th>
-                                        <td>{roommate.title}</td>
-                                        <td>{roommate.location}</td>
-                                        <td>TK:{roommate.rent_amount}</td>
-                                        <td>{roommate.room_type}</td>
-                                        <td>{roommate.availability}</td>
-                                        <td>
+                                    <tr key={roommate._id} >
+                                        <th className='text-xs sm:text-base'>{index+1}</th>
+                                        <td className='text-xs sm:text-base'>{roommate.title}</td>
+                                        <td className='text-xs sm:text-base'>{roommate.location}</td>
+                                        <td className='text-xs sm:text-base'>TK:{roommate.rent_amount}</td>
+                                        <td className='text-xs sm:text-base'>{roommate.room_type}</td>
+                                        <td className='text-xs sm:text-base'>{roommate.availability}</td>
+                                        <td className='text-xs sm:text-base'>
                                             <Link to={`/details/${roommate._id}`} className="btn btn-accent btn-outline font-bold">See More <FaArrowRight/></Link>
                                         </td>
                                     </tr>
                             )
                         }
+                        </tbody>                
+
                     </table>    
                 </div>
             </main>

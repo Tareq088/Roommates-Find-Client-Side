@@ -68,17 +68,17 @@ const SignUp = () => {
                     <fieldset className="fieldset">
                                 {/* name */}
                         <label className="label">Name</label>
-                        <input type="text" name='name' className="input" placeholder="Name" required/>
+                        <input type="text" name='name' className="input" placeholder="Name" a/>
                                     {/* email */}
                         <label className="label">Email</label>
-                        <input type="email" name='email' className="input" placeholder="Email" required/>
+                        <input type="email" name='email' className="input" placeholder="Email" a/>
                                     {/* photoURL */}
                     
                         <label className="label">photoURL</label>
-                        <input type="text" name='photo' className="input" placeholder="photoURL" required/>
+                        <input type="text" name='photo' className="input" placeholder="photoURL" a/>
                                     {/* password */}
                         <label className="label">Password</label>
-                        <input type="password" name='password' className="input" placeholder="Password" required/>
+                        <input type="password" name='password' className="input" placeholder="Password" a/>
                         {
                             errorMessage && <p className='text-xs text-red-700'>{errorMessage}</p>
                         }

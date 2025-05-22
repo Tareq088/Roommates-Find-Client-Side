@@ -11,6 +11,7 @@ import HomeLayout from './../Layout/HomeLayOut/HomeLayout';
 import Home from './../Components/Home/Home';
 import Details from "../Pages/Details/Details";
 import Loading from "../Pages/Loading/Loading";
+import UpdateRoommateData from "../Pages/Update/UpdateRoommateData";
 
 
 export const router = createBrowserRouter([
@@ -48,6 +49,12 @@ export const router = createBrowserRouter([
             //get kora
     loader: ()=>fetch("http://localhost:3000/roommates"),
     element:<PrivateRoute><My_Listing></My_Listing></PrivateRoute>
+  },
+  {
+    path:"/updateRoommateData/:id",
+    hydrateFallbackElement: <Loading></Loading>,
+    loader:({params})=>fetch(`http://localhost:3000/roommates/${params.id}`),
+    element:<UpdateRoommateData></UpdateRoommateData>
   },
   {
     path:"/auth",
