@@ -38,12 +38,16 @@ export const router = createBrowserRouter([
   {
     path:'/browse_listing',
     hydrateFallbackElement: <Loading></Loading>,
+            //get kora
     loader: ()=>fetch("http://localhost:3000/roommates"),
     Component:Browse_Listing,
   },
   {
     path:'/my_listing',
-    Component:My_Listing
+    hydrateFallbackElement: <Loading></Loading>,
+            //get kora
+    loader: ()=>fetch("http://localhost:3000/roommates"),
+    element:<PrivateRoute><My_Listing></My_Listing></PrivateRoute>
   },
   {
     path:"/auth",
