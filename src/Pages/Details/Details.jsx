@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
@@ -12,8 +12,9 @@ import { AiFillLike } from "react-icons/ai";
 
 const Details = () => {
     const roommate = useLoaderData();
-    console.log(roommate);
+    // console.log(roommate);
     const {_id, title,location,rent_amount,room_type,style_preference,description,contact_info,availability,email,User_name} = roommate|| {};
+    const [liked, setLiked] = useState(true);
     return (
         <div>
             <header className='sticky top-0 z-10 bg-base-200'>
@@ -23,17 +24,20 @@ const Details = () => {
                 <div className="card bg-base-100 shadow-lg max-w-xl h-full mx-auto">
                     <div className="flex flex-col space-y-3 p-4">
                         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-red-800 text-center my-6">{title}</h2>
-                        <p className='flex justify-between items-center'>
+                        <div className='flex justify-between items-start'>
                             <div className='flex gap-2 items-center text-sm sm:text-lg'>
                                 < FaHouseUser size={20} sm:size={22} color='green'/>      
                                 <span className='font-bold text-blue-500'>User: </span> {User_name}
                             </div>
-                            <div>
-                                <button className='cursor-pointer mr-5'>
-                                        <AiFillLike size={25} color='red'/>
+                            <div className='flex flex-col gap-2'>
+                                <button onClick={()=>{setLiked(false)}} className='cursor-pointer mr-5 btn'>
+                                        <AiFillLike size={25} color='red'/> <span>Like Page</span>
                                 </button>
+                                <p className={`flex gap-2 items-center text-sm sm:text-lg ${liked && "hidden"}`}>
+                                    <IoMdCall size={20} sm:size={22} color='blue'/> {contact_info}
+                                </p>
                             </div>
-                        </p>
+                        </div>
                         <p className='flex gap-2 items-center text-sm sm:text-lg'><FaLocationDot size={20} sm:size={22} color='green'>
                                 </FaLocationDot> <a className='text-blue-800 hover:text-red-600' href="https://www.google.com/maps"> {location} </a>
                         </p>
@@ -45,10 +49,13 @@ const Details = () => {
                         </p>
                         <p className='flex gap-2 items-center text-sm sm:text-lg'>
                             <FaPersonCircleCheck size={20} sm:size={22} color='green'/>{availability}
-                        </p>
-                        <p className='flex gap-2 items-center text-sm sm:text-lg'>
+                        </p>    
+                       
+                        {/* <p className={`flex gap-2 items-center text-sm sm:text-lg ${liked && "hidden"}`}>
                             <IoMdCall size={20} sm:size={22} color='blue'/> {contact_info}
-                        </p>
+                        </p> */}
+                  
+                   
                         <p className='flex gap-2 items-center text-sm sm:text-lg'>
                             <MdMarkEmailUnread size={20} sm:size={22} color='gray'/>
                             <span className='text-cyan-950 font-bold'>Email Address: </span> 
