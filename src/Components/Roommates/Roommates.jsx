@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import RoommatesCard from '../RoommatesCard/RoommatesCard';
         //get korar somoy method likha lage na
-const fetchPromise = fetch("http://localhost:3000/roommates?limit=6").then(res=>res.json());
+const fetchPromise = fetch("http://localhost:3000/roommates/limit?limit=6").then(res=>res.json());
 
 const Roommates = () => {
     const initialRoommates = use(fetchPromise);

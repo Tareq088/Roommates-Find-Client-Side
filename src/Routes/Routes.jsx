@@ -37,7 +37,9 @@ export const router = createBrowserRouter([
   },
   {
     path:'/browse_listing',
-    Component:Browse_Listing
+    hydrateFallbackElement: <Loading></Loading>,
+    loader: ()=>fetch("http://localhost:3000/roommates"),
+    Component:Browse_Listing,
   },
   {
     path:'/my_listing',
