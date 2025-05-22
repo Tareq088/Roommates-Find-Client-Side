@@ -9,6 +9,8 @@ import My_Listing from "../Pages/My_Listing/My_Listing";
 import PrivateRoute from './../Contexts/PrivateRoute';
 import HomeLayout from './../Layout/HomeLayOut/HomeLayout';
 import Home from './../Components/Home/Home';
+import Details from "../Pages/Details/Details";
+import Loading from "../Pages/Loading/Loading";
 
 
 export const router = createBrowserRouter([
@@ -26,6 +28,12 @@ export const router = createBrowserRouter([
   {
     path:"/find_roommate",
     element:<PrivateRoute><Find_Roommate></Find_Roommate></PrivateRoute>
+  },
+  {
+    path:"/details/:id",
+    hydrateFallbackElement: <Loading></Loading>,
+    loader:({params})=>fetch(`http://localhost:3000/roommates/${params.id}`),
+    element:<PrivateRoute> <Details></Details> </PrivateRoute>
   },
   {
     path:'/browse_listing',

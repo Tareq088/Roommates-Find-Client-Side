@@ -32,7 +32,7 @@ const AuthProvider = ({children}) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser);
             console.log(currentUser);
-            setLoading(false)
+            setLoading(false);
         });
         return ()=>{unSubscribe()}
     },[])
@@ -41,7 +41,7 @@ const AuthProvider = ({children}) => {
         return updateProfile (auth.currentUser, profile)
     }
     const userInfo ={
-        signUp, logIn, googleLogIn, user, setUser, logOut,updateUserFProfile
+        signUp, logIn, googleLogIn, user, setUser, logOut,updateUserFProfile,loading,setLoading
     }
     return (
         <AuthContext value={userInfo}>
