@@ -17,7 +17,7 @@ const Slider = () => {
                             <h2 className='font-bold text-xl sm:text-3xl md:text-6xl text-blue-700'>Find Your Roommate</h2>
                             <p className='text-white text-xs sm:text-base'> 10000+ rooms and flatmates available now across Bangladesh</p>
                             <form>
-                                <input type="text" className="input" placeholder="search by location"/>
+                                <input type="text" className="input h-12 text-lg" placeholder="search by location"/>
                             </form>
                         </div>
                         <div className="translate-y-1/2 transform">
@@ -36,7 +36,7 @@ const Slider = () => {
                             <h2 className='font-bold text-xl sm:text-3xl md:text-6xl text-blue-700'>Find Your Roommate</h2>
                             <p className='text-white text-xs sm:text-base'> 10000+ rooms and flatmates available now across Bangladesh</p>
                             <form>
-                                <input type="text" className="input" placeholder="search by location"/>
+                                <input type="text" className="input h-12 text-lg" placeholder="search by location"/>
                             </form>
                         </div>
                         <div className="translate-y-1/2 transform">
@@ -55,7 +55,7 @@ const Slider = () => {
                             <h2 className='font-bold text-xl sm:text-3xl md:text-6xl text-blue-700'>Find Your Roommate</h2>
                             <p className='text-white text-xs sm:text-base'> 10000+ rooms and flatmates available now across Bangladesh</p>
                             <form>
-                                <input type="text" className="input" placeholder="search by location"/>
+                                <input type="text" className="input h-12 text-lg" placeholder="search by location"/>
                             </form>
                         </div>
                         <div className="translate-y-1/2 transform">

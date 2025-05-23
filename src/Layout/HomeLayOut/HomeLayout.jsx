@@ -6,6 +6,7 @@ import Roommates from '../../Components/Roommates/Roommates';
 import Slider from './../../Components/Slider/Slider';
 import Loading from './../../Pages/Loading/Loading';
 import ExtraSec1 from '../../Components/ExtraSec1/ExtraSec1';
+import ExtraSec2 from '../../Components/ExtraSec2/ExtraSec2';
 
 const HomeLayout = () => {
     return (
@@ -19,6 +20,7 @@ const HomeLayout = () => {
                     <Roommates></Roommates>
                 </Suspense>
                 <ExtraSec1></ExtraSec1>
+                <ExtraSec2></ExtraSec2>
                 
                 <Outlet></Outlet>
             </main>

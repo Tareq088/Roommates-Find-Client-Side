@@ -3,12 +3,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import how_works_image from "../../assets/how_works.jpg"
 import { div } from 'framer-motion/client';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { FaRegCheckCircle } from "react-icons/fa";
 
 const ExtraSec1 = () => {
 
       const [textType, setTextType] = useState("one");
+      const[activeRent,setActiveRent] = useState(true);
+      const[activeFind,setActiveFind] = useState(false);
 
   const content = {
     one: (
@@ -45,15 +47,37 @@ const ExtraSec1 = () => {
                     <h2 className='font-bold text-xl sm:text-2xl md:text-4xl text-purple-800'>How It Works</h2>
                     <div className="p-6 space-y-4">
                         <div className="space-x-4 flex">
-                            <button
-                                onClick={() => setTextType("one")}
-                                className="px-4 py-2 bg-blue-500 text-xs sm:text-base text-white rounded cursor-pointer"
+                            {/* <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 px-2 shadow">
+                                <li className='text-lg' onClick={() => setTextType("one")}>
+                                    <NavLink to='' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Rent A Room</NavLink>
+                                </li>
+                                <li className='text-lg' onClick={() => setTextType("two")}>
+                                    <NavLink to='' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Find A Room</NavLink>
+                                </li>
+
+                            </ul> */}
+                            <button 
+                            // className={({isActive})=> isActive ? 'underline text-green-600' : ''}
+                                onClick={() => {setTextType("one");
+                                                setActiveRent(true);
+                                                setActiveFind(false);
+                                                }
+                                        }
+                                className={`px-4 py-2 bg-gray-500 text-xs sm:text-base text-white rounded cursor-pointer ${activeRent && "bg-green-500" }`}
                             >
                             Rent A Room
                             </button>
-                            <button
-                            onClick={() => setTextType("two")}
-                            className="px-4 py-2 bg-green-500 text-xs sm:text-base text-white rounded cursor-pointer"
+                            <button 
+                            // className={({isActive})=> isActive ? 'underline text-red-600' : ''}
+                            onClick={() => {setTextType("two");
+                                            setActiveFind(true);
+                                            setActiveRent(false);
+                                            }
+                                    }
+                            
+                            className={`px-4 py-2 bg-gray-500 text-xs sm:text-base text-white rounded cursor-pointer ${activeFind && "bg-green-500" }`}
                             >
                             Find A Room
                             </button>
