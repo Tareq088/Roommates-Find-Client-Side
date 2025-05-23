@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
@@ -8,13 +8,40 @@ import { GiMoneyStack } from 'react-icons/gi';
 import { IoMdCall } from "react-icons/io";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { AiFillLike } from "react-icons/ai";
+import { AuthContext } from '../../Contexts/AuthContext';
 
 
 const Details = () => {
     const roommate = useLoaderData();
+    const {user} = use(AuthContext);
+    // console.log(user)
+    // console.log(user.email)
     // console.log(roommate);
-    const {_id, title,location,rent_amount,room_type,style_preference,description,contact_info,availability,email,User_name} = roommate|| {};
-    const [liked, setLiked] = useState(true);
+    // console.log(roommate.email);
+    const {_id, title,location,rent_amount,room_type,style_preference,description,contact_info,availability,email,User_name,likeCount} = roommate|| {};
+    const [liked, setLiked] = useState(false);
+    const[clickable, setClickable] = useState(false)
+    useEffect(()=>{
+          if(user.email !== roommate.email){
+            // console.log("true");
+            setClickable(true);
+            }
+            // else{
+            //     console.log(false);
+            //     setClickable(false);
+            // }
+    } , [user.email, roommate.email]);
+    const [roomLikeCount,setRoomLikeCount] = useState(likeCount)
+    const handleLikeBtn = (id) =>{
+            fetch(`http://localhost:3000/roommates/${id}`,{
+                method:"PATCH"
+            })
+            .then(res => res.json())
+            .then(data => {
+                setRoomLikeCount(roomLikeCount+1)
+                console.log("after patch", data)
+            })
+    }              
     return (
         <div>
             <header className='sticky top-0 z-10 bg-base-200'>
@@ -23,17 +50,21 @@ const Details = () => {
             <main className=''>
                 <div className="card bg-base-100 shadow-lg max-w-xl h-full mx-auto">
                     <div className="flex flex-col space-y-3 p-4">
-                        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-red-800 text-center my-6">{title}</h2>
+                        <div className='flex justify-between items-center'>
+                            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-red-800 my-6">Title: {title}</h2>
+                            <p className='btn w-1/3 text-red-900'>{roomLikeCount} People Interested In</p>
+                        </div>
                         <div className='flex justify-between items-start'>
                             <div className='flex gap-2 items-center text-sm sm:text-lg'>
                                 < FaHouseUser size={20} sm:size={22} color='green'/>      
                                 <span className='font-bold text-blue-500'>User: </span> {User_name}
                             </div>
                             <div className='flex flex-col gap-2'>
-                                <button onClick={()=>{setLiked(false)}} className='cursor-pointer mr-5 btn'>
-                                        <AiFillLike size={25} color='red'/> <span>Like Page</span>
+                                <button onClick={()=>{setLiked(true);
+                                                    handleLikeBtn(_id)}} className='cursor-pointer mr-5 btn' disabled={!clickable} >
+                                        <AiFillLike size={25} style={{color:liked?"red":"black"}}/> <p>Like Page</p>
                                 </button>
-                                <p className={`flex gap-2 items-center text-sm sm:text-lg ${liked && "hidden"}`}>
+                                <p className={`flex gap-2 items-center text-sm sm:text-lg ${liked || "hidden"}`}>
                                     <IoMdCall size={20} sm:size={22} color='blue'/> {contact_info}
                                 </p>
                             </div>

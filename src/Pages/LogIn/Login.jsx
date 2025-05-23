@@ -46,11 +46,11 @@ const Login = () => {
                             
                                     {/* email */}
                         <label className="label">Email</label>
-                        <input type="email" name='email' className="input" placeholder="Email" a/>
+                        <input type="email" name='email' className="input" placeholder="Email"/>
                                   
                                     {/* password */}
                         <label className="label">Password</label>
-                        <input type="password" name='password' className="input" placeholder="Password" a/>
+                        <input type="password" name='password' className="input" placeholder="Password"/>
                         {
                             errorMessage && <p className='text-xs text-red-700'>{errorMessage}</p>
                         }

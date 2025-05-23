@@ -21,7 +21,6 @@ const HomeLayout = () => {
                 </Suspense>
                 <ExtraSec1></ExtraSec1>
                 <ExtraSec2></ExtraSec2>
-                
                 <Outlet></Outlet>
             </main>
             <footer className=''>

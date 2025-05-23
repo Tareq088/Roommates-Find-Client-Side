@@ -7,7 +7,7 @@ import { GiMoneyStack } from 'react-icons/gi';
 
 const Browse_Listing = () => {
     const roommatesData = useLoaderData();
-    console.log(roommatesData)
+    // console.log(roommatesData)
     // const {User_name,availability,location, rent_amount,title,room_type,_id} = roommate|| {};
     return (
         <div>

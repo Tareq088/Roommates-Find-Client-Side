@@ -13,6 +13,7 @@ const Find_Roommate = () => {
         const form = e.target;
         const formData = new FormData(form);
         const roomMateData = Object.fromEntries(formData.entries());
+        roomMateData.likeCount = 0;
         console.log(roomMateData);
         fetch("http://localhost:3000/roommates",{
             method:"POST",
