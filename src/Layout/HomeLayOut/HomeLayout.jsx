@@ -5,6 +5,7 @@ import { Outlet } from 'react-router';
 import Roommates from '../../Components/Roommates/Roommates';
 import Slider from './../../Components/Slider/Slider';
 import Loading from './../../Pages/Loading/Loading';
+import ExtraSec1 from '../../Components/ExtraSec1/ExtraSec1';
 
 const HomeLayout = () => {
     return (
@@ -17,6 +18,8 @@ const HomeLayout = () => {
                 <Suspense fallback={<Loading></Loading>}>
                     <Roommates></Roommates>
                 </Suspense>
+                <ExtraSec1></ExtraSec1>
+                
                 <Outlet></Outlet>
             </main>
             <footer className=''>
