@@ -4,6 +4,7 @@ import roomMateLogo from '../../assets/roomMate_logo.png'
 import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { FaUserCircle } from 'react-icons/fa';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
     const {user, logOut} = use(AuthContext);
@@ -30,7 +31,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 px-2 shadow">
                             <li className='text-lg'><NavLink to='/' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Home</NavLink></li>
                             <li className='text-lg'><NavLink to='/about' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Add toFind Roommate</NavLink></li>
                             <li className='text-lg'><NavLink to='/browse_listin' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Browse Listing</NavLink></li>
@@ -55,27 +56,30 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
                     {
                         user?
-                        <Link to='/profile'>
-                            <div className='w-12 p-0.5 bg-black rounded-full relative group'>
-
+                        (
+                            <div>
+                        {/* <Link to='/profile'> */}
+                            {/* <div className='w-12 p-0.5 bg-black rounded-full relative group'>
                                 <img className='rounded-full' src={user?.photoURL}></img>
-
-        
                                 <div className='absolute -left-10 top-12 hidden group-hover:block p-1 w-40 bg-blue-100 rounded-md'>
-                                    
                                         <p className='font-bold text-center text-fuchsia-950'>{user?.displayName}</p>
                                 </div>
-                            </div>
-                        </Link>
+                            </div> */}
+                            <a data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} className='w-12 p-0.5 rounded-full'>
+                                <img className='rounded-full w-12' src={user?.photoURL}></img>
+                            </a>
+                            <Tooltip id="my-tooltip" />
+                        {/* </Link> */}
+                        </div>
+                            )
 
                         :
                         <div className='cursor-pointer' onClick={()=>navigate('/auth/login')}>
                             <FaUserCircle  size={35}></FaUserCircle>
                         </div>
-                        
                     } 
                     {
                         user?
