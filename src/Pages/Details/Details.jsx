@@ -9,6 +9,7 @@ import { IoMdCall } from "react-icons/io";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { AiFillLike } from "react-icons/ai";
 import { AuthContext } from '../../Contexts/AuthContext';
+import { Helmet } from 'react-helmet-async';
 
 
 const Details = () => {
@@ -44,6 +45,9 @@ const Details = () => {
     }              
     return (
         <div>
+                        <Helmet>
+                            <title>FindMate | Details/{_id}</title>
+                        </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar></Navbar>
             </header>
@@ -52,7 +56,7 @@ const Details = () => {
                     <div className="flex flex-col space-y-3 p-4">
                         <div className='flex justify-between items-center'>
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-red-800 my-6">Title: {title}</h2>
-                            <p className='btn w-1/3 text-red-900'>{roomLikeCount} People Interested In</p>
+                            <p className='btn w-1/3 text-red-500'>{roomLikeCount} People Interested In</p>
                         </div>
                         <div className='flex justify-between items-start'>
                             <div className='flex gap-2 items-center text-sm sm:text-lg'>
@@ -62,7 +66,7 @@ const Details = () => {
                             <div className='flex flex-col gap-2'>
                                 <button onClick={()=>{setLiked(true);
                                                     handleLikeBtn(_id)}} className='cursor-pointer mr-5 btn' disabled={!clickable} >
-                                        <AiFillLike size={25} style={{color:liked?"red":"black"}}/> <p>Like Page</p>
+                                        <AiFillLike size={25} style={{color:liked?"green":"black"}}/> <p>Like Page</p>
                                 </button>
                                 <p className={`flex gap-2 items-center text-sm sm:text-lg ${liked || "hidden"}`}>
                                     <IoMdCall size={20} sm:size={22} color='blue'/> {contact_info}

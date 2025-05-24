@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import Footer from '../../Components/Footer/Footer';
 import Navbar from '../../Components/Navbar/Navbar';
+import { Helmet } from 'react-helmet-async';
 
 const Find_Roommate = () => {
     const {user} =use(AuthContext);
@@ -33,6 +34,9 @@ const Find_Roommate = () => {
     }
     return (
         <div>
+                        <Helmet>
+                            <title>FindMate | Form</title>
+                        </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar ></Navbar>
             </header>
@@ -87,7 +91,7 @@ const Find_Roommate = () => {
                         <label className="label">User Name</label>
                         <input type="text" name='User_name' value={user?.displayName} className="input w-full" placeholder="User Name" readOnly />
                 
-                        <button type='submit' className="btn btn-neutral mt-4">Add Button</button>
+                        <button type='submit' className="btn btn-success mt-4">Add Button</button>
                     </fieldset>
                     </form>
                 </div>

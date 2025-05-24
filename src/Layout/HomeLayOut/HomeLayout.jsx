@@ -7,10 +7,14 @@ import Slider from './../../Components/Slider/Slider';
 import Loading from './../../Pages/Loading/Loading';
 import ExtraSec1 from '../../Components/ExtraSec1/ExtraSec1';
 import ExtraSec2 from '../../Components/ExtraSec2/ExtraSec2';
+import { Helmet } from 'react-helmet-async';
 
 const HomeLayout = () => {
     return (
         <div>
+            <Helmet>
+                <title>FindMate | Home</title>
+            </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar ></Navbar>
             </header>

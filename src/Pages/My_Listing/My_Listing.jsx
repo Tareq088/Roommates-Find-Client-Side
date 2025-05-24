@@ -7,6 +7,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { GrUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const My_Listing = () =>{
     const roommatesData = useLoaderData();
@@ -50,6 +51,9 @@ const My_Listing = () =>{
 }
     return (
         <div>
+            <Helmet>
+                <title>FindMate | My Listing</title>
+            </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar></Navbar>
             </header>
@@ -78,12 +82,12 @@ const My_Listing = () =>{
                                         <td className='text-xs sm:text-base'>
                                             <div className="join join-vertical space-y-1">
                                                 <Link to={`/updateRoommateData/${listingData._id}`} >
-                                                    <button className="btn join-item text-green-700"><GrUpdate size={20}/>UPDATE
+                                                    <button className="btn join-item text-green-700 btn-outline btn-success"><GrUpdate size={20}/>UPDATE
                                                     </button>
                                                 </Link>
                                                 
                                                     <button onClick={()=>{handleDelete(listingData._id)}}
-                                                     className="btn join-item text-red-600"><MdDelete size={20}/>DELETE</button>
+                                                     className="btn join-item text-red-600 btn-outline btn-error"><MdDelete size={20}/>DELETE</button>
                                             </div>
                                         </td>
                                     </tr>

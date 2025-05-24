@@ -11,7 +11,7 @@
   default: true;
   --color-neutral: oklch(98% 0.02 240);
   --color-primary: black;
-  --color-accent:rgba(0,201,81,.1);
+  --color-accent:#e9dfdf;
 
 }
 

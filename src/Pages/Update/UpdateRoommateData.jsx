@@ -4,6 +4,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { useLoaderData, Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateRoommateData = () => {
     const {user} =use(AuthContext);
@@ -42,6 +43,9 @@ const UpdateRoommateData = () => {
     }
     return (
        <div>
+                    <Helmet>
+                        <title>FindMate | Update/{_id}</title>
+                    </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar></Navbar>
             </header>

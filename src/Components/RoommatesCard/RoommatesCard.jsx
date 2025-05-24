@@ -19,7 +19,7 @@ const RoommatesCard = ({roommate}) => {
                     <p className='flex gap-2 items-center'><FaHouseDamage color='blue'/>{room_type}</p>
                     <p className='flex gap-2 items-center'><FaPersonCircleCheck color='green'/>{availability}</p>
                     <div className="card-actions justify-end">
-                    <Link to={`/details/${_id}`} className="btn btn-accent btn-outline font-bold">See More <FaArrowRight/></Link>
+                    <Link to={`/details/${_id}`} className="btn btn-success btn-outline font-bold">See More <FaArrowRight/></Link>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
     const{signUp,setUser,updateUserFProfile} = use(AuthContext);
@@ -62,6 +63,9 @@ const SignUp = () => {
     }
     return (
         <div>
+                        <Helmet>
+                            <title>FindMate | Register</title>
+                        </Helmet>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto p-5">
                 <h2 className='text-center font-bold text-lg md:text-3xl pt-4'>Sign Up</h2>
                 <form onSubmit={handleSignUp} className="card-body">
@@ -83,7 +87,7 @@ const SignUp = () => {
                             errorMessage && <p className='text-xs text-red-700'>{errorMessage}</p>
                         }
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button type='submit' to='/auth/login' className="btn btn-neutral mt-4">Register</button>
+                        <button type='submit' to='/auth/login' className="btn btn-success mt-4">Register</button>
                     </fieldset>
                 </form>
                 <p className='text-center'>Already Have an Account? 

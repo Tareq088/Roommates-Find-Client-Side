@@ -4,6 +4,7 @@ import Footer from '../../Components/Footer/Footer';
 import { Link, useLoaderData } from 'react-router';
 import { FaArrowRight } from 'react-icons/fa';
 import { GiMoneyStack } from 'react-icons/gi';
+import { Helmet } from 'react-helmet-async';
 
 const Browse_Listing = () => {
     const roommatesData = useLoaderData();
@@ -11,6 +12,9 @@ const Browse_Listing = () => {
     // const {User_name,availability,location, rent_amount,title,room_type,_id} = roommate|| {};
     return (
         <div>
+            <Helmet>
+                <title>FindMate | Browse Listing</title>
+            </Helmet>
             <header className='sticky top-0 z-10 bg-base-200'>
                 <Navbar></Navbar>
             </header>
@@ -39,7 +43,7 @@ const Browse_Listing = () => {
                                         <td className='text-xs sm:text-base'>{roommate.room_type}</td>
                                         <td className='text-xs sm:text-base'>{roommate.availability}</td>
                                         <td className='text-xs sm:text-base'>
-                                            <Link to={`/details/${roommate._id}`} className="btn btn-accent btn-outline font-bold">See More <FaArrowRight/></Link>
+                                            <Link to={`/details/${roommate._id}`} className="btn btn-success btn-outline font-bold">See More <FaArrowRight/></Link>
                                         </td>
                                     </tr>
                             )

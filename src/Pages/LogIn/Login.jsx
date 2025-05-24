@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const {logIn, googleLogIn} = use(AuthContext);
@@ -39,6 +40,9 @@ const Login = () => {
         }
     return (
         <div>
+                        <Helmet>
+                            <title>FindMate | Log in</title>
+                        </Helmet>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto p-5">
                 <h2 className='text-center font-bold text-lg md:text-3xl pt-4'>Sign In</h2>
                 <form onSubmit={handleLogIn} className="card-body">
@@ -55,7 +59,7 @@ const Login = () => {
                             errorMessage && <p className='text-xs text-red-700'>{errorMessage}</p>
                         }
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button type='submit' to='/auth/login' className="btn btn-neutral mt-4">Log In</button>
+                        <button type='submit' to='/auth/login' className="btn btn-success mt-4">Log In</button>
                     </fieldset>
                 </form>
                 <div className="divider divider-primary">OR</div>
