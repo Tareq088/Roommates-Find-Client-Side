@@ -14,6 +14,7 @@ Features:
     6. After getting his Roommate, one can delete his info.
     7. One can Like Other's page.
     8. Data are stored in Server.
+    9. Responsive Website
 
 
 # React + Vite
