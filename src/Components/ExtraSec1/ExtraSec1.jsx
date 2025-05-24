@@ -40,7 +40,7 @@ const ExtraSec1 = () => {
   };
 
     return (
-        <div className='bg-gray-50'>
+        <div className=''>
             <div className='w-11/12 mx-auto h-full'>
             <div className='flex flex-col sm:flex-row py-10'>
                 <div className='w-full text-center'>

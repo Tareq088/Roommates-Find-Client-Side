@@ -5,7 +5,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const ExtraSec2 = () => {
     
     return (
-        <div className='bg-amber-50'>
+        <div className='bg-accent'>
             <div className='w-11/12 mx-auto py-10'>
                 <h2 className='font-bold text-xl sm:text-2xl md:text-4xl text-purple-800 text-center my-5'>why Use Find Mate?</h2>
                 <div className='text-center font-bold text-green-950 my-5'>
