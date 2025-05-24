@@ -19,7 +19,7 @@ const UpdateRoommateData = () => {
         const formData = new FormData(form);
         const updateRoommateData = Object.fromEntries(formData.entries());
         // console.log(updateRoommateData);
-        fetch(`http://localhost:3000/roommates/${_id}`,{
+        fetch(`https://roommate-server.vercel.app/roommates/${_id}`,{
             method:'PUT',
             headers:{
                 "content-type":"application/json",

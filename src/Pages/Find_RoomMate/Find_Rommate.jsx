@@ -15,7 +15,7 @@ const Find_Roommate = () => {
         const roomMateData = Object.fromEntries(formData.entries());
         roomMateData.likeCount = 0;
         console.log(roomMateData);
-        fetch("http://localhost:3000/roommates",{
+        fetch("https://roommate-server.vercel.app/roommates",{
             method:"POST",
             headers:{
                 "content-type":"application/json",

@@ -33,7 +33,7 @@ const Details = () => {
     } , [user.email, roommate.email]);
     const [roomLikeCount,setRoomLikeCount] = useState(likeCount)
     const handleLikeBtn = (id) =>{
-            fetch(`http://localhost:3000/roommates/${id}`,{
+            fetch(`https://roommate-server.vercel.app/roommates/${id}`,{
                 method:"PATCH"
             })
             .then(res => res.json())

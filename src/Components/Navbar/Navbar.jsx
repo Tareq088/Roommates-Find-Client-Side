@@ -5,6 +5,7 @@ import { AuthContext } from '../../Contexts/AuthContext';
 import { toast } from 'react-toastify';
 import { FaUserCircle } from 'react-icons/fa';
 import { Tooltip } from 'react-tooltip';
+import ThemeToggle from '../../ThemeToggle';
 
 const Navbar = () => {
     const {user, logOut} = use(AuthContext);
@@ -23,7 +24,7 @@ const Navbar = () => {
     }
     return (
         <div className=''>
-            <div className="navbar w-11/12 mx-auto">
+            <div className="navbar w-full sm:w-11/12 mx-auto pr-4 sm:px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +48,6 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                   
                     <ul className="menu menu-horizontal px-1">
                         <li className='text-lg'><NavLink to='/' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Home</NavLink></li>
                         <li className='text-lg'><NavLink to='/find_roommate' className={({isActive})=> isActive ? 'underline text-green-600' : ''}>Add to Find Roommate</NavLink></li>
@@ -56,7 +56,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0.5">
+                    <div className='w-auto'>
+                        <ThemeToggle></ThemeToggle>
+                    </div>
+                    
                     {
                         user?
                         (
@@ -88,8 +92,8 @@ const Navbar = () => {
                         </button>
                     :
                         <div className='flex'>
-                            <Link to='/auth/login' className="btn btn-outline font-medium mr-2 text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log In</Link>
-                            <Link to='/auth/signup' className="btn font-medium btn-outline text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Register</Link>
+                            <Link to='/auth/login' className="btn btn-outline mr-1 text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Log In</Link>
+                            <Link to='/auth/signup' className="btn btn-outline text-xs md:text-base p-1 sm:p-2 text-blue-600 hover:text-red-600">Register</Link>
                         </div>
                     }
                         
