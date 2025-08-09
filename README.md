@@ -7,6 +7,10 @@ Live Link:
     2. In Surge: https://tareq-roommate-app.surge.sh/
     
     3. In Firebase: https://roommate-app-auth.web.app
+    
+vercel link:
+
+https://roommate-server.vercel.app/
 
 Features:
     1. One can Rent Roommates that are listed in Browse Listings.
