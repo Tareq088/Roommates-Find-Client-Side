@@ -13,14 +13,23 @@ vercel link:
 https://roommate-server.vercel.app/
 
 Features:
+
     1. One can Rent Roommates that are listed in Browse Listings.
+    
     2. One can easily Find Roommates from Find Add to Find Roommate section.
+    
     3. One can update his/her information after submitting the roommate info from Find Add to Find Roommate section.
+    
     4. The website is very much user friendly to get Roommate info after Log In.
+    
     5.It has Dark or Light theme mode.
+    
     6. After getting his Roommate, one can delete his info.
+    
     7. One can Like Other's page.
+    
     8. Data are stored in Server.
+    
     9. Responsive Website
 
 
